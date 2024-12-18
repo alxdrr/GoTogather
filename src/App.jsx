@@ -3,6 +3,7 @@ import image1 from "./assets/image1.png";
 import image2 from "./assets/image2.png";
 import image3 from "./assets/image3.png";
 import apple from "./assets/logo/apple.png";
+import ID from "./assets/logo/indo.png";
 import google from "./assets/logo/google.png";
 import fb from "./assets/logo/logos_facebook.png";
 import x from "./assets/logo/X.png";
@@ -120,14 +121,80 @@ function App() {
           </div>
           <div className="flex flex-col w-full items-center gap-4">
             {" "}
-            <button className="w-2/3 bg-blue-500 rounded-full">
-              <div className="text-center w-full py-4 text-white">Sign Up</div>
-            </button>
             <button
-              className="w-2/3 bg-dark rounded-full"
+              className="w-2/3 bg-blue-500 rounded-full"
               onClick={() => setCount(count + 1)}
             >
+              <div className="text-center w-full py-4 text-white">Sign Up</div>
+            </button>
+            <button className="w-2/3 bg-dark rounded-full">
               <div className="text-center w-full py-4 text-white">Sign In</div>
+            </button>
+          </div>
+        </div>
+      );
+    } else if (count === 5) {
+      return (
+        <div className="flex flex-col text-dark px-6 pt-6 pb-20 relative justify-between items-center h-screen">
+          <div className=" flex-col items-center">
+            <div className="flex w-full mb-16">
+              <p className="">Kembali</p>
+            </div>
+
+            <p className="font-bold text-2xl w-full">Join GoTogather Today✨</p>
+            <p className="mb-16">
+              Ayo mulai! Masukan nomor telepon anda untuk masuk ke aplikasi
+              Gotogether akun.
+            </p>
+            <form action="" method="" className="mb-8">
+              <div className="relative text-gray-600 focus-within:text-gray-400">
+                <div className="relative">
+                  <p className="font-bold text-dark">Phone Number</p>
+                </div>
+
+                <div className="relative rounded-lg py-3">
+                  <span className="absolute inset-y-0 left-0 flex items-center pl-4">
+                    <img src={ID} alt="" />
+                  </span>
+                  <input
+                    type="number"
+                    name="q"
+                    className="py-4 px-6 w-full rounded-lg text-xs bg-slate-200 text-dark bg-landing pl-14 focus:outline-none focus:text-gray-900"
+                    placeholder="Masukkan nomor telepon"
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+            </form>
+            <div className="w-full bg-dark rounded-full flex p-3 items-center justify-between px-8 mb-6">
+              <img src={google} alt="" className="h-8" />
+              <div className="text-center py-2 text-white">
+                Continue with Google
+              </div>
+            </div>
+            <div className="w-full bg-dark rounded-full flex p-3 items-center justify-between px-8 mb-6">
+              <img src={apple} alt="" className="h-8" />
+              <div className="text-center py-2 text-white">
+                Continue with Apple
+              </div>
+            </div>
+            <div className="w-full bg-dark rounded-full flex p-3 items-center justify-between px-8 mb-6">
+              <img src={fb} alt="" className="h-8" />
+              <div className="text-center py-2 text-white">
+                Continue with Facebook
+              </div>
+            </div>
+            <div className="w-full bg-dark rounded-full flex p-3 items-center justify-between px-8 mb-6">
+              <img src={x} alt="" className="h-8" />
+              <div className="text-center py-2 text-white">Continue with X</div>
+            </div>
+          </div>
+          <div className="flex bottom-0 pb-16 pt-8 absolute w-screen flex-col items-center gap-4">
+            <button
+              className="w-2/3 bg-primary rounded-full"
+              onClick={() => setCount(count + 1)}
+            >
+              <div className="text-center w-full py-4 text-white">Sign up</div>
             </button>
           </div>
         </div>
