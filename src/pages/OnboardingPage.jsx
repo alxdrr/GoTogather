@@ -62,7 +62,7 @@ function App() {
             className="w-2/3 bg-primary rounded-full"
             onClick={() => setCount(count + 1)}
           >
-            <div className="text-center w-full py-4 text-white">Lanjutkan</div>
+            <div className="text-center w-full py-4 text-white">Lanjustkan</div>
           </button>
         </div>
       );
