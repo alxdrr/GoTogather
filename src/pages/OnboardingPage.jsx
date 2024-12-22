@@ -1,5 +1,5 @@
 import { useState } from "react";
-import start from "../assets/Start.Jpg";
+import start from "../assets/Start.jpg";
 import onboarding1 from "../assets/Onboarding1.gif";
 import onboarding2 from "../assets/Onboarding2.gif";
 import onboarding3 from "../assets/Onboarding3.gif";
