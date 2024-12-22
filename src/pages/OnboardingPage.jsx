@@ -8,6 +8,7 @@ import ID from "../assets/logo/indo.png";
 import google from "../assets/logo/google.png";
 import fb from "../assets/logo/logos_facebook.png";
 import x from "../assets/logo/X.png";
+import { Link } from "react-router";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -224,6 +225,9 @@ function App() {
           >
             <div className="text-center w-full py-3 text-white">Let's Go</div>
           </button>
+          <Link to="/main">
+            <p>Maps</p>
+          </Link>
         </div>
       );
     }
