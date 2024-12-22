@@ -1,7 +1,8 @@
 import { useState } from "react";
-import image1 from "../assets/image1.png";
-import image2 from "../assets/image2.png";
-import image3 from "../assets/image3.png";
+import start from "../assets/Start.Jpg";
+import onboarding1 from "../assets/Onboarding1.gif";
+import onboarding2 from "../assets/Onboarding2.gif";
+import onboarding3 from "../assets/Onboarding3.gif";
 import apple from "../assets/logo/apple.png";
 import ID from "../assets/logo/indo.png";
 import google from "../assets/logo/google.png";
@@ -19,19 +20,21 @@ function App() {
           <div className="flex flex-col items-center">
             <div className="flex justify-between items-center w-full mb-16">
               <h1 className="font-bold text-lg">GoTogather</h1>
-              <p className="">Lewati</p>
+              <p className="" onClick={() => setCount(4)}>
+                Lewati ►
+              </p>
             </div>
-            <img src={image1} alt="Illustration" className="w-64 my-16" />
-            <p className="font-bold text-lg text-center">
+            <p className="font-bold text-2xl text-center">
               Pemesanan Mudah dan Cepat
             </p>
-            <p className="text-center">
+            <img src={onboarding1} alt="Illustration" className="w-64 my-16" />
+            <p className="text-center text-lg font-bold">
               Cari dan pesan tumpangan hanya dalam beberapa langkah. Cukup pilih
               rute dan tumpangan sesuai kebutuhan siswa. {count}
             </p>
           </div>
           <button
-            className="w-2/3 bg-blue-500 rounded-full"
+            className="w-2/3 bg-primary rounded-full"
             onClick={() => setCount(count + 1)}
           >
             <div className="text-center w-full py-4 text-white">Lanjutkan</div>
@@ -44,17 +47,19 @@ function App() {
           <div className="flex flex-col items-center">
             <div className="flex justify-between items-center w-full mb-16">
               <h1 className="font-bold text-lg">GoTogather</h1>
-              <p className="">Lewati</p>
+              <p className="" onClick={() => setCount(4)}>
+                Lewati ►
+              </p>
             </div>
-            <img src={image2} alt="Illustration" className="w-64 my-16" />
-            <p className="font-bold text-lg text-center">Pantau perjalanan</p>
-            <p className="text-center">
+            <p className="font-bold text-2xl text-center">Pantau perjalanan</p>
+            <img src={onboarding2} alt="Illustration" className="w-64 my-16" />
+            <p className="text-center text-lg font-bold">
               Lacak perjalanan siswa secara real-time dan pastikan mereka tiba
               di tujuan dengan selamat.
             </p>
           </div>
           <button
-            className="w-2/3 bg-blue-500 rounded-full"
+            className="w-2/3 bg-primary rounded-full"
             onClick={() => setCount(count + 1)}
           >
             <div className="text-center w-full py-4 text-white">Lanjutkan</div>
@@ -67,17 +72,19 @@ function App() {
           <div className="flex flex-col items-center">
             <div className="flex justify-between items-center w-full mb-16">
               <h1 className="font-bold text-lg">GoTogather</h1>
-              <p className="">Lewati</p>
+              <p className="" onClick={() => setCount(4)}>
+                Lewati ►
+              </p>
             </div>
-            <img src={image3} alt="Illustration" className="w-80 my-16" />
-            <p className="font-bold text-lg text-center">Keamanan terjamin</p>
-            <p className="text-center">
+            <p className="font-bold text-2xl text-center">Keamanan terjamin</p>
+            <img src={onboarding3} alt="Illustration" className="w-80 my-16" />
+            <p className="text-center text-lg font-bold">
               Nikmati perjalanan dengan sopir terverifikasi dan rute yang telah
               dirancang untuk keamanan siswa.
             </p>
           </div>
           <button
-            className="w-2/3 bg-blue-500 rounded-full"
+            className="w-2/3 bg-primary rounded-full"
             onClick={() => setCount(count + 1)}
           >
             <div className="text-center w-full py-4 text-white">Lanjutkan</div>
@@ -89,7 +96,9 @@ function App() {
         <div className="flex flex-col text-dark px-6 pt-6 pb-20 justify-between items-center h-screen">
           <div className="flex flex-col items-center">
             <div className="flex w-full mb-16">
-              <p className="">Lewati</p>
+              <p className="text-primary" onClick={() => setCount(3)}>
+                ◄ Kembali
+              </p>
             </div>
 
             <p className="font-bold text-3xl text-center">Let's Get Started</p>
@@ -122,7 +131,7 @@ function App() {
           <div className="flex flex-col w-full items-center gap-4">
             {" "}
             <button
-              className="w-2/3 bg-blue-500 rounded-full"
+              className="w-2/3 bg-primary rounded-full"
               onClick={() => setCount(count + 1)}
             >
               <div className="text-center w-full py-4 text-white">Sign Up</div>
@@ -138,7 +147,9 @@ function App() {
         <div className="flex flex-col text-dark px-6 pt-6 pb-20 relative justify-between items-center h-screen">
           <div className=" flex-col items-center">
             <div className="flex w-full mb-16">
-              <p className="">Kembali</p>
+              <p className="" onClick={() => setCount(4)}>
+                Kembali
+              </p>
             </div>
 
             <p className="font-bold text-2xl w-full">Join GoTogather Today✨</p>
@@ -201,13 +212,17 @@ function App() {
       );
     } else {
       return (
-        <div className="flex flex-col items-center justify-center h-screen">
-          <p className="text-lg">Klik tombol untuk memulai!</p>
+        <div className="flex flex-col px-6 pb-20 justify-between items-center relative h-screen">
+          <img src={start} alt="" className="w-screen h-dvh absolute -z-10" />
+          <div className="flex pt-24 items-center flex-col h-full">
+            <p className="text-white text-2xl font-thin">Selamat Datang</p>
+            <h1 className="text-5xl font-bold text-white">GoTogather</h1>
+          </div>
           <button
-            className="w-2/3 bg-blue-500 rounded-full mt-6"
-            onClick={() => setCount(1)}
+            className="w-2/3 bg-primary rounded-full"
+            onClick={() => setCount(count + 1)}
           >
-            <div className="text-center w-full py-4 text-white">Mulai</div>
+            <div className="text-center w-full py-3 text-white">Let's Go</div>
           </button>
         </div>
       );
