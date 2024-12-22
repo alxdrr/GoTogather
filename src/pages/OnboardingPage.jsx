@@ -1,12 +1,12 @@
 import { useState } from "react";
-import image1 from "./assets/image1.png";
-import image2 from "./assets/image2.png";
-import image3 from "./assets/image3.png";
-import apple from "./assets/logo/apple.png";
-import ID from "./assets/logo/indo.png";
-import google from "./assets/logo/google.png";
-import fb from "./assets/logo/logos_facebook.png";
-import x from "./assets/logo/X.png";
+import image1 from "../assets/image1.png";
+import image2 from "../assets/image2.png";
+import image3 from "../assets/image3.png";
+import apple from "../assets/logo/apple.png";
+import ID from "../assets/logo/indo.png";
+import google from "../assets/logo/google.png";
+import fb from "../assets/logo/logos_facebook.png";
+import x from "../assets/logo/X.png";
 
 function App() {
   const [count, setCount] = useState(0);
