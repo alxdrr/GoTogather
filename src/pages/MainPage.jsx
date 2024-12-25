@@ -101,7 +101,332 @@ function App() {
           </Marker>
         ))}
       </MapContainer>
-      <div className="bottom-0 w-full bg-white z-50 border-t border-gray-200 shadow-md">
+      <div className="bottom-0 w-full bg-white z-50 border-t gap-2 pt-2 border-gray-200 shadow-md">
+        <div className="flex ps-6 items-center w-full">
+          {" "}
+          <svg
+            width="10"
+            height="73"
+            viewBox="0 0 10 73"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="5"
+              cy="5"
+              r="5"
+              transform="matrix(1 0 0 -1 0 11.5)"
+              fill="black"
+            />
+            <circle
+              cx="5"
+              cy="5"
+              r="5"
+              transform="matrix(1 0 0 -1 0 11.5)"
+              fill="black"
+            />
+            <circle
+              cx="5"
+              cy="5"
+              r="5"
+              transform="matrix(1 0 0 -1 0 11.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 15.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 15.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 15.5)"
+              fill="#9F9F9F"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 19.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 19.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 19.5)"
+              fill="#9F9F9F"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 23.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 23.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 23.5)"
+              fill="#9F9F9F"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 27.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 27.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 27.5)"
+              fill="#9F9F9F"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 31.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 31.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 31.5)"
+              fill="#9F9F9F"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 35.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 35.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 35.5)"
+              fill="#9F9F9F"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 39.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 39.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 39.5)"
+              fill="#9F9F9F"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 43.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 43.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 43.5)"
+              fill="#9F9F9F"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 47.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 47.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 47.5)"
+              fill="#9F9F9F"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 51.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 51.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 51.5)"
+              fill="#9F9F9F"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 55.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 55.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 55.5)"
+              fill="#9F9F9F"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 59.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 59.5)"
+              fill="black"
+            />
+            <circle
+              cx="1"
+              cy="1"
+              r="1"
+              transform="matrix(1 0 0 -1 4 59.5)"
+              fill="#9F9F9F"
+            />
+            <circle
+              cx="5"
+              cy="5"
+              r="5"
+              transform="matrix(1 0 0 -1 0 71.5)"
+              fill="black"
+            />
+            <circle
+              cx="5"
+              cy="5"
+              r="5"
+              transform="matrix(1 0 0 -1 0 71.5)"
+              fill="black"
+            />
+            <circle
+              cx="5"
+              cy="5"
+              r="5"
+              transform="matrix(1 0 0 -1 0 71.5)"
+              fill="#4B4CED"
+            />
+          </svg>
+          <div className="flex flex-col px-4 py-2 grow gap-1">
+            <select
+              name=""
+              id=""
+              className="bg-slate-200 rounded-full gap-1 py-3 px-3"
+            >
+              <option value="Tes">Jl. Kampus Unud</option>
+              <option value="Tes">Jl. Kampus Unud</option>
+            </select>
+            <select
+              name=""
+              id=""
+              className="bg-slate-200 rounded-full gap-1 py-3 px-3"
+            >
+              <option value="Tes">SDN 4 Jimbaran</option>
+              <option value="Tes">SDN 6 Jimbaran</option>
+              <option value="Tes">SDN 9 Jimbaran</option>
+              <option value="Tes">SDN 1 Benoa</option>
+            </select>
+          </div>
+        </div>
         <div className="flex justify-around items-center py-2">
           {/* Beranda */}
           <div className="flex flex-col items-center text-blue-600">
