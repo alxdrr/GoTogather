@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  Polyline,
+} from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import iconSchool from "../assets/iconSchool.png";
@@ -26,7 +32,12 @@ const busIcon = new L.Icon({
   iconAnchor: [15, 30],
   popupAnchor: [0, -30],
 });
-
+const busRoute = [
+  { lat: -8.796916, lng: 115.176273 },
+  { lat: -8.785556, lng: 115.176667 },
+  { lat: -8.789722, lng: 115.180833 },
+  { lat: -8.792778, lng: 115.183333 },
+];
 function App() {
   const [userLocation, setUserLocation] = useState({
     lat: -8.796916,
@@ -80,15 +91,18 @@ function App() {
       <MapContainer
         center={[-8.796916, 115.176273]} // Default center: Rektorat UNUD
         zoom={15}
+        style={{ height: "calc(100% - 64px)", width: "100%" }}
         zoomControl={false} // Disable zoom in/out buttons
         attributionControl={false} // Remove Leaflet attribution
-        className="w-full grow h-auto max-w-full"
       >
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <TileLayer
+          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png" // HD Map Layer
+          attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/'>CARTO</a>"
+        />
         <Marker position={[userLocation.lat, userLocation.lng]} icon={userIcon}>
           <Popup>Your Location</Popup>
         </Marker>
-        <Marker position={[busLocation.lat, busLocation.lng]} icon={busIcon}>
+        <Marker position={[busLocation.lat, busLocation.lng]}>
           <Popup>Bus Location</Popup>
         </Marker>
         {schools.map((school, index) => (
@@ -100,6 +114,7 @@ function App() {
             <Popup>{school.name}</Popup>
           </Marker>
         ))}
+        <Polyline positions={busRoute} color="blue" />
       </MapContainer>
       <div className="bottom-0 w-full bg-white z-50 border-t gap-2 pt-2 border-gray-200 shadow-md">
         <div className="flex ps-6 items-center w-full">
@@ -423,7 +438,7 @@ function App() {
               <option value="Tes">SDN 4 Jimbaran</option>
               <option value="Tes">SDN 6 Jimbaran</option>
               <option value="Tes">SDN 9 Jimbaran</option>
-              <option value="Tes">SDN 1 Benoa</option>
+              <option value="Tes">SDN 1 Be</option>
             </select>
           </div>
         </div>
