@@ -76,7 +76,7 @@ function App() {
   ];
 
   return (
-    <div className="h-screen w-screen flex flex-col">
+    <div className="h-dvh w-screen flex flex-col">
       <MapContainer
         center={[-8.796916, 115.176273]} // Default center: Rektorat UNUD
         zoom={15}
