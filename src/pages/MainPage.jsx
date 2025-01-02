@@ -10,10 +10,11 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import iconSchool from "../assets/iconSchool.png";
 import iconBus from "../assets/iconBus.png";
+import iconUser from "../assets/iconUser.png";
 
 // Custom icons
 const userIcon = new L.Icon({
-  iconUrl: "https://example.com/user-icon.png",
+  iconUrl: iconUser,
   iconSize: [60, 60],
   iconAnchor: [15, 30],
   popupAnchor: [0, -30],
@@ -33,10 +34,28 @@ const busIcon = new L.Icon({
   popupAnchor: [0, -30],
 });
 const busRoute = [
-  { lat: -8.796916, lng: 115.176273 },
-  { lat: -8.785556, lng: 115.176667 },
-  { lat: -8.789722, lng: 115.180833 },
-  { lat: -8.792778, lng: 115.183333 },
+  { lat: -8.804113, lng: 115.159553 }, // Titik awal
+  { lat: -8.800658, lng: 115.160578 },
+  { lat: -8.798089, lng: 115.160849 },
+  { lat: -8.799293, lng: 115.164799 },
+  { lat: -8.800131, lng: 115.17063 },
+  { lat: -8.799863, lng: 115.17092 },
+  { lat: -8.79711, lng: 115.171112 },
+  { lat: -8.795454, lng: 115.171444 },
+  { lat: -8.789125, lng: 115.173807 },
+  { lat: -8.789078, lng: 115.177043 },
+  { lat: -8.787489, lng: 115.177342 },
+  { lat: -8.785248, lng: 115.178459 },
+  { lat: -8.78428, lng: 115.178345 },
+  { lat: -8.781364, lng: 115.178758 },
+  { lat: -8.782747, lng: 115.181942 },
+  { lat: -8.783144, lng: 115.185508 },
+  { lat: -8.783885, lng: 115.18728 },
+  { lat: -8.783948, lng: 115.189351 },
+  { lat: -8.784887, lng: 115.193265 },
+  { lat: -8.784923, lng: 115.194224 },
+  { lat: -8.784286, lng: 115.194138 },
+  { lat: -8.783256, lng: 115.19426 },
 ];
 function App() {
   const [userLocation, setUserLocation] = useState({
@@ -44,18 +63,17 @@ function App() {
     lng: 115.176273,
   }); // Default location: Rektorat UNUD
   const [busLocation, setBusLocation] = useState({
-    lat: -8.796916,
-    lng: 115.176273,
+    lat: -8.804113,
+    lng: 115.159553,
   });
 
   // Mock bus location update
   useEffect(() => {
+    let index = 0;
     const interval = setInterval(() => {
-      setBusLocation((prev) => ({
-        lat: prev.lat + 0.001,
-        lng: prev.lng + 0.001,
-      }));
-    }, 3000);
+      setBusLocation(busRoute[index]);
+      index = (index + 1) % busRoute.length; // Loop back to start after reaching the end
+    }, 5000); // Update every 3 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -81,9 +99,21 @@ function App() {
   }, []);
 
   const schools = [
-    { name: "SDN 4 Jimbaran", lat: -8.785556, lng: 115.176667 },
-    { name: "SDN 6 Jimbaran", lat: -8.789722, lng: 115.180833 },
-    { name: "SDN 9 Jimbaran", lat: -8.792778, lng: 115.183333 },
+    {
+      name: "SDN 4 Jimbaran",
+      lat: -8.798888642441606,
+      lng: 115.16116811800387,
+    },
+    {
+      name: "SDN 6 Jimbaran",
+      lat: -8.782025533289131,
+      lng: 115.18018464075726,
+    },
+    {
+      name: "SDN 9 Jimbaran",
+      lat: -8.783944134329529,
+      lng: 115.19419926218396,
+    },
   ];
 
   return (
@@ -102,7 +132,7 @@ function App() {
         <Marker position={[userLocation.lat, userLocation.lng]} icon={userIcon}>
           <Popup>Your Location</Popup>
         </Marker>
-        <Marker position={[busLocation.lat, busLocation.lng]}>
+        <Marker position={[busLocation.lat, busLocation.lng]} icon={busIcon}>
           <Popup>Bus Location</Popup>
         </Marker>
         {schools.map((school, index) => (
