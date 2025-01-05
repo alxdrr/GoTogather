@@ -201,14 +201,14 @@ function App() {
               <div className="text-center py-2 text-white">Continue with X</div>
             </div>
           </div>
-          <div className="flex bottom-0 pb-16 pt-8 absolute w-screen flex-col items-center gap-4">
-            <button
-              className="w-2/3 bg-primary rounded-full"
-              onClick={() => setCount(count + 1)}
-            >
+          <Link
+            to="/main"
+            className="flex bottom-0 pb-16 pt-8 absolute w-screen flex-col items-center gap-4"
+          >
+            <button className="w-2/3 bg-primary rounded-full">
               <div className="text-center w-full py-4 text-white">Sign up</div>
             </button>
-          </div>
+          </Link>
         </div>
       );
     } else {

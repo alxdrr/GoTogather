@@ -11,6 +11,7 @@ import "leaflet/dist/leaflet.css";
 import iconSchool from "../assets/iconSchool.png";
 import iconBus from "../assets/iconBus.png";
 import iconUser from "../assets/iconUser.png";
+import bus from "../assets/logo/bus.png";
 
 // Custom icons
 const userIcon = new L.Icon({
@@ -471,6 +472,59 @@ function App() {
               <option value="Tes">SDN 1 Be</option>
             </select>
           </div>
+        </div>
+        <button>
+          <svg
+            width="48"
+            height="48"
+            viewBox="0 0 48 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="48" height="48" rx="24" fill="#7F97FF" />
+            <g clip-path="url(#clip0_199_8079)">
+              <path
+                d="M25.195 28.83L30 24L25.195 19.17C25.1516 19.113 25.0965 19.066 25.0333 19.0322C24.9702 18.9983 24.9005 18.9785 24.829 18.9739C24.7576 18.9694 24.6859 18.9802 24.619 19.0057C24.5521 19.0313 24.4914 19.0709 24.4411 19.1219C24.3909 19.1729 24.3521 19.2341 24.3275 19.3014C24.303 19.3687 24.2931 19.4405 24.2987 19.5119C24.3043 19.5833 24.3252 19.6527 24.3599 19.7153C24.3946 19.7779 24.4424 19.8324 24.5 19.875L28.095 23.5H18.53C18.3974 23.5 18.2702 23.5527 18.1764 23.6464C18.0827 23.7402 18.03 23.8674 18.03 24C18.03 24.1326 18.0827 24.2598 18.1764 24.3535C18.2702 24.4473 18.3974 24.5 18.53 24.5H28.095L24.5 28.125C24.4065 28.2191 24.3543 28.3466 24.3547 28.4792C24.3552 28.6119 24.4083 28.739 24.5025 28.8325C24.5967 28.926 24.7241 28.9782 24.8568 28.9778C24.9894 28.9773 25.1165 28.9241 25.21 28.83H25.195Z"
+                fill="white"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_199_8079">
+                <rect
+                  width="18"
+                  height="18"
+                  fill="white"
+                  transform="matrix(0 1 -1 0 33 15)"
+                />
+              </clipPath>
+            </defs>
+          </svg>
+        </button>
+        <div className="flex relative flex-col text-primary px-2 py-2 shadow-md rounded-xl mx-6 w-[25dvh] h-[25dvh]">
+          <p className="font-bold text-xl w-max">Bus Sarbagita</p>
+          <div className="flex gap-3 w-max">
+            <p>3-5 Menit</p>
+            <div className="flex w-auto h-auto justify-center items-center text-neutral-500">
+              {" "}
+              <svg
+                width="11"
+                height="11"
+                viewBox="0 0 11 11"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2.0625 9.625C2.0625 9.625 1.375 9.625 1.375 8.9375C1.375 8.25 2.0625 6.1875 5.5 6.1875C8.9375 6.1875 9.625 8.25 9.625 8.9375C9.625 9.625 8.9375 9.625 8.9375 9.625H2.0625ZM5.5 5.5C6.04701 5.5 6.57161 5.2827 6.95841 4.89591C7.3452 4.50911 7.5625 3.98451 7.5625 3.4375C7.5625 2.89049 7.3452 2.36589 6.95841 1.97909C6.57161 1.5923 6.04701 1.375 5.5 1.375C4.95299 1.375 4.42839 1.5923 4.04159 1.97909C3.6548 2.36589 3.4375 2.89049 3.4375 3.4375C3.4375 3.98451 3.6548 4.50911 4.04159 4.89591C4.42839 5.2827 4.95299 5.5 5.5 5.5Z"
+                  fill="#C7C7C7"
+                />
+              </svg>
+              <p>10</p>
+            </div>
+          </div>
+          <p className="text-neutral-500 text-xs w-2/3">
+            Fasilitas yang bersih dan nyaman
+          </p>
+          <img src={bus} alt="" className="w-min absolute bottom-0 right-0" />
         </div>
         <div className="flex justify-around items-center py-2">
           {/* Beranda */}
