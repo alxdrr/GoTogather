@@ -225,9 +225,6 @@ function App() {
           >
             <div className="text-center w-full py-3 text-white">Let's Go</div>
           </button>
-          <Link to="/main">
-            <p>Maps</p>
-          </Link>
         </div>
       );
     }
