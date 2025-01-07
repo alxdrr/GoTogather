@@ -9,10 +9,27 @@ import google from "../assets/logo/google.png";
 import fb from "../assets/logo/logos_facebook.png";
 import x from "../assets/logo/X.png";
 import { Link } from "react-router";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "75%",
+  bgcolor: "white",
+  border: "none",
+  boxShadow: 24,
+  p: 2,
+};
 function App() {
   const [count, setCount] = useState(0);
-
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   // Fungsi untuk menentukan elemen yang akan dirender
   const renderContent = () => {
     if (count === 1) {
@@ -106,26 +123,26 @@ function App() {
             <p className="text-center mb-16">
               Silahkan pilih akun yang Anda inginkan!
             </p>
-            <div className="w-full bg-dark rounded-full flex p-3 items-center justify-between px-8 mb-6">
-              <img src={google} alt="" className="h-8" />
+            <div className="w-full bg-dark rounded-full flex p-2 items-center justify-start gap-4 px-7 mb-4">
+              <img src={google} alt="" className="h-5" />
               <div className="text-center py-2 text-white">
                 Continue with Google
               </div>
             </div>
-            <div className="w-full bg-dark rounded-full flex p-3 items-center justify-between px-8 mb-6">
-              <img src={apple} alt="" className="h-8" />
+            <div className="w-full bg-dark rounded-full flex p-2 items-center justify-start gap-4 px-7 mb-4">
+              <img src={apple} alt="" className="h-5" />
               <div className="text-center py-2 text-white">
                 Continue with Apple
               </div>
             </div>
-            <div className="w-full bg-dark rounded-full flex p-3 items-center justify-between px-8 mb-6">
-              <img src={fb} alt="" className="h-8" />
+            <div className="w-full bg-dark rounded-full flex p-2 items-center justify-start gap-4 px-7 mb-4">
+              <img src={fb} alt="" className="h-5" />
               <div className="text-center py-2 text-white">
                 Continue with Facebook
               </div>
             </div>
-            <div className="w-full bg-dark rounded-full flex p-3 items-center justify-between px-8 mb-6">
-              <img src={x} alt="" className="h-8" />
+            <div className="w-full bg-dark rounded-full flex p-2 items-center justify-start gap-4 px-7 mb-4">
+              <img src={x} alt="" className="h-5" />
               <div className="text-center py-2 text-white">Continue with X</div>
             </div>
           </div>
@@ -135,10 +152,10 @@ function App() {
               className="w-2/3 bg-primary rounded-full"
               onClick={() => setCount(count + 1)}
             >
-              <div className="text-center w-full py-4 text-white">Sign Up</div>
+              <div className="text-center w-full py-3 text-white">Sign Up</div>
             </button>
             <button className="w-2/3 bg-dark rounded-full">
-              <div className="text-center w-full py-4 text-white">Sign In</div>
+              <div className="text-center w-full py-3 text-white">Sign In</div>
             </button>
           </div>
         </div>
@@ -154,11 +171,11 @@ function App() {
             </div>
 
             <p className="font-bold text-2xl w-full">Join GoTogather Today✨</p>
-            <p className="mb-16">
+            <p className="mb-4">
               Ayo mulai! Masukan nomor telepon anda untuk masuk ke aplikasi
               Gotogether akun.
             </p>
-            <form action="" method="" className="mb-8">
+            <form action="" method="" className="mb-4">
               <div className="relative text-gray-600 focus-within:text-gray-400">
                 <div className="relative">
                   <p className="font-bold text-dark">Phone Number</p>
@@ -178,37 +195,47 @@ function App() {
                 </div>
               </div>
             </form>
-            <div className="w-full bg-dark rounded-full flex p-3 items-center justify-between px-8 mb-6">
-              <img src={google} alt="" className="h-8" />
-              <div className="text-center py-2 text-white">
-                Continue with Google
-              </div>
-            </div>
-            <div className="w-full bg-dark rounded-full flex p-3 items-center justify-between px-8 mb-6">
-              <img src={apple} alt="" className="h-8" />
-              <div className="text-center py-2 text-white">
-                Continue with Apple
-              </div>
-            </div>
-            <div className="w-full bg-dark rounded-full flex p-3 items-center justify-between px-8 mb-6">
-              <img src={fb} alt="" className="h-8" />
-              <div className="text-center py-2 text-white">
-                Continue with Facebook
-              </div>
-            </div>
-            <div className="w-full bg-dark rounded-full flex p-3 items-center justify-between px-8 mb-6">
-              <img src={x} alt="" className="h-8" />
-              <div className="text-center py-2 text-white">Continue with X</div>
-            </div>
           </div>
-          <Link
-            to="/main"
-            className="flex bottom-0 pb-16 pt-8 absolute w-screen flex-col items-center gap-4"
+
+          <button
+            onClick={handleOpen}
+            className="w-2/3 bg-primary rounded-full"
           >
-            <button className="w-2/3 bg-primary rounded-full">
-              <div className="text-center w-full py-4 text-white">Sign up</div>
-            </button>
-          </Link>
+            <div className="text-center w-full py-4 text-white">Continue</div>
+          </button>
+
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style} className="gap-6 flex flex-col">
+              <Typography
+                id="modal-modal-title"
+                variant="h6"
+                component="h2"
+                className="text-center"
+              >
+                Akun berhasil dibuat
+              </Typography>
+              <Typography id="modal-modal-description" className="text-center">
+                Ayo cari tumpangan
+              </Typography>
+
+              <Link
+                to="/main"
+                className="flex bottom w-full flex-col items-center"
+              >
+                {" "}
+                <button className="w-2/3 bg-primary rounded-full">
+                  <div className="text-center w-full py-3 text-white">
+                    Lanjutkan
+                  </div>
+                </button>
+              </Link>
+            </Box>
+          </Modal>
         </div>
       );
     } else {
