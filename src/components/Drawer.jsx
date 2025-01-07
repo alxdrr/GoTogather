@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Global } from "@emotion/react";
 import { styled } from "@mui/material/styles";
@@ -37,9 +37,12 @@ const Puller = styled("div")(({ theme }) => ({
 }));
 
 function SwipeableEdgeDrawer(props) {
-  const { window } = props;
+  const { window, setBusType } = props;
   const [open, setOpen] = React.useState(false);
-  const [selectedCard, setSelectedCard] = React.useState(0);
+  const [selectedBus, setSelectedBus] = useState("sarbagita");
+  const active = () => {
+    return "bg-[#C3CEFF]";
+  };
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -415,35 +418,79 @@ function SwipeableEdgeDrawer(props) {
                 </select>
               </div>
             </div>
-            <div className="flex relative flex-col text-primary px-2 py-2 shadow-md rounded-xl w-[25dvh] h-[25dvh]">
-              <p className="font-bold text-xl w-max">Bus Sarbagita</p>
-              <div className="flex gap-3 w-max">
-                <p>3-5 Menit</p>
-                <div className="flex w-auto h-auto justify-center items-center text-neutral-500">
-                  {" "}
-                  <svg
-                    width="11"
-                    height="11"
-                    viewBox="0 0 11 11"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M2.0625 9.625C2.0625 9.625 1.375 9.625 1.375 8.9375C1.375 8.25 2.0625 6.1875 5.5 6.1875C8.9375 6.1875 9.625 8.25 9.625 8.9375C9.625 9.625 8.9375 9.625 8.9375 9.625H2.0625ZM5.5 5.5C6.04701 5.5 6.57161 5.2827 6.95841 4.89591C7.3452 4.50911 7.5625 3.98451 7.5625 3.4375C7.5625 2.89049 7.3452 2.36589 6.95841 1.97909C6.57161 1.5923 6.04701 1.375 5.5 1.375C4.95299 1.375 4.42839 1.5923 4.04159 1.97909C3.6548 2.36589 3.4375 2.89049 3.4375 3.4375C3.4375 3.98451 3.6548 4.50911 4.04159 4.89591C4.42839 5.2827 4.95299 5.5 5.5 5.5Z"
-                      fill="#C7C7C7"
-                    />
-                  </svg>
-                  <p>10</p>
+            <div className="flex gap-6 flex-wrap items-center justify-center">
+              <div
+                onClick={() => {
+                  setBusType("sarbagita");
+                  setSelectedBus("sarbagita");
+                }}
+                className={`flex relative flex-col text-primary px-2 py-2 shadow-md rounded-xl w-[20dvh] h-[20dvh] 
+                  ${selectedBus == "sarbagita" ? active() : null}`}
+              >
+                <p className="font-bold text-lg w-max">Bus Sarbagita</p>
+                <div className="flex text-xs gap-3 w-max">
+                  <p>3-5 Menit</p>
+                  <div className="flex w-auto h-auto justify-center items-center text-neutral-500">
+                    <svg
+                      width="11"
+                      height="11"
+                      viewBox="0 0 11 11"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.0625 9.625C2.0625 9.625 1.375 9.625 1.375 8.9375C1.375 8.25 2.0625 6.1875 5.5 6.1875C8.9375 6.1875 9.625 8.25 9.625 8.9375C9.625 9.625 8.9375 9.625 8.9375 9.625H2.0625ZM5.5 5.5C6.04701 5.5 6.57161 5.2827 6.95841 4.89591C7.3452 4.50911 7.5625 3.98451 7.5625 3.4375C7.5625 2.89049 7.3452 2.36589 6.95841 1.97909C6.57161 1.5923 6.04701 1.375 5.5 1.375C4.95299 1.375 4.42839 1.5923 4.04159 1.97909C3.6548 2.36589 3.4375 2.89049 3.4375 3.4375C3.4375 3.98451 3.6548 4.50911 4.04159 4.89591C4.42839 5.2827 4.95299 5.5 5.5 5.5Z"
+                        fill="#C7C7C7"
+                      />
+                    </svg>
+                    <p>10</p>
+                  </div>
                 </div>
+                <p className="text-neutral-500 text-xs w-2/3">
+                  Fasilitas yang bersih dan nyaman
+                </p>
+                <img
+                  src={bus}
+                  alt=""
+                  className="w-min absolute bottom-0 right-0"
+                />
               </div>
-              <p className="text-neutral-500 text-xs w-2/3">
-                Fasilitas yang bersih dan nyaman
-              </p>
-              <img
-                src={bus}
-                alt=""
-                className="w-min absolute bottom-0 right-0"
-              />
+              <div
+                onClick={() => {
+                  setBusType("transmart");
+                  setSelectedBus("transmart");
+                }}
+                className={`flex relative flex-col text-primary px-2 py-2 shadow-md rounded-xl w-[20dvh] h-[20dvh] 
+                  ${selectedBus == "transmart" ? active() : null}`}
+              >
+                <p className="font-bold text-lg w-max">Bus Transmart</p>
+                <div className="flex text-xs gap-3 w-max">
+                  <p>3-5 Menit</p>
+                  <div className="flex w-auto h-auto justify-center items-center text-neutral-500">
+                    <svg
+                      width="11"
+                      height="11"
+                      viewBox="0 0 11 11"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.0625 9.625C2.0625 9.625 1.375 9.625 1.375 8.9375C1.375 8.25 2.0625 6.1875 5.5 6.1875C8.9375 6.1875 9.625 8.25 9.625 8.9375C9.625 9.625 8.9375 9.625 8.9375 9.625H2.0625ZM5.5 5.5C6.04701 5.5 6.57161 5.2827 6.95841 4.89591C7.3452 4.50911 7.5625 3.98451 7.5625 3.4375C7.5625 2.89049 7.3452 2.36589 6.95841 1.97909C6.57161 1.5923 6.04701 1.375 5.5 1.375C4.95299 1.375 4.42839 1.5923 4.04159 1.97909C3.6548 2.36589 3.4375 2.89049 3.4375 3.4375C3.4375 3.98451 3.6548 4.50911 4.04159 4.89591C4.42839 5.2827 4.95299 5.5 5.5 5.5Z"
+                        fill="#C7C7C7"
+                      />
+                    </svg>
+                    <p>10</p>
+                  </div>
+                </div>
+                <p className="text-neutral-500 text-xs w-2/3">
+                  Fasilitas yang bersih dan nyaman
+                </p>
+                <img
+                  src={bus}
+                  alt=""
+                  className="w-min absolute bottom-0 right-0"
+                />
+              </div>
             </div>
           </Box>
         </StyledBox>

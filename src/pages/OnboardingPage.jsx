@@ -10,7 +10,6 @@ import fb from "../assets/logo/logos_facebook.png";
 import x from "../assets/logo/X.png";
 import { Link } from "react-router";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 

@@ -20,6 +20,8 @@ import iconBus from "../assets/iconBus.png";
 import iconUser from "../assets/iconUser.png";
 import SwipeableEdgeDrawer from "../components/Drawer";
 
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 // Custom icons
 const userIcon = new L.Icon({
   iconUrl: iconUser,
@@ -41,7 +43,7 @@ const busIcon = new L.Icon({
   iconAnchor: [15, 30],
   popupAnchor: [0, -30],
 });
-const busRoute = [
+const busRoute1 = [
   { lat: -8.804113, lng: 115.159553 }, // Titik awal
   { lat: -8.800658, lng: 115.160578 },
   { lat: -8.798089, lng: 115.160849 },
@@ -65,7 +67,43 @@ const busRoute = [
   { lat: -8.784286, lng: 115.194138 },
   { lat: -8.783256, lng: 115.19426 },
 ];
+const busRoute2 = [
+  { lat: -8.804113, lng: 115.159553 }, // Titik awal
+  { lat: -8.800658, lng: 115.160578 },
+  { lat: -8.798089, lng: 115.160849 },
+  { lat: -8.79754492586669, lng: 115.16095713988064 },
+  { lat: -8.79477233281687, lng: 115.16257719410325 },
+  { lat: -8.79189899267544, lng: 115.16367689980814 },
+  { lat: -8.789282396747478, lng: 115.16418959943192 },
+  { lat: -8.787135313980205, lng: 115.16532685605291 },
+  { lat: -8.787135313980205, lng: 115.16532685605291 },
+  { lat: -8.786340095000414, lng: 115.16519811002283 },
+  { lat: -8.7864090140415, lng: 115.16647484151696 },
+  { lat: -8.785608492010374, lng: 115.16586329786463 },
+  { lat: -8.784876887598509, lng: 115.16583647577504 },
+  { lat: -8.78199286766822, lng: 115.16734387722208 },
+  { lat: -8.778695302715239, lng: 115.16881909218135 },
+  { lat: -8.777558713128528, lng: 115.17031455934925 },
+  { lat: -8.771077976510194, lng: 115.17319698216859 },
+  { lat: -8.76524420371669, lng: 115.17474486279586 },
+  { lat: -8.751551511521258, lng: 115.17825547587137 },
+];
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "75%",
+  bgcolor: "white",
+  border: "none",
+  boxShadow: 24,
+  p: 2,
+};
 function App() {
+  const [open, setOpen] = useState(true);
+  const [busType, setBusType] = useState("sarbagita");
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const [userLocation, setUserLocation] = useState({
     lat: -8.796916,
     lng: 115.176273,
@@ -74,16 +112,27 @@ function App() {
     lat: -8.804113,
     lng: 115.159553,
   });
+  const [busLocation2, setBusLocation2] = useState({
+    lat: -8.804113,
+    lng: 115.159553,
+  });
   const [value, setValue] = React.useState(0);
   // Mock bus location update
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
-      setBusLocation(busRoute[index]);
-      index = (index + 1) % busRoute.length; // Loop back to start after reaching the end
+      setBusLocation(busRoute1[index]);
+      index = (index + 1) % busRoute1.length; // Loop back to start after reaching the end
     }, 5000); // Update every 3 seconds
+    const interval2 = setInterval(() => {
+      setBusLocation2(busRoute2[4]);
+      index = (index + 1) % busRoute2.length; // Loop back to start after reaching the end
+    }, 4000); // Update every 3 seconds
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      clearInterval(interval2);
+    };
   }, []);
 
   // Get user location
@@ -122,10 +171,70 @@ function App() {
       lat: -8.783944134329529,
       lng: 115.19419926218396,
     },
+    {
+      name: "SMPN 1 Kuta Selatan",
+      lat: -8.786061,
+      lng: 115.163384,
+    },
+    {
+      name: "SMA Taman Sastra Plus Pariwisata",
+      lat: -8.768405025360032,
+      lng: 115.17375199108778,
+    },
+    {
+      name: "SD 1 Kedonganan",
+      lat: -8.765626858755994,
+      lng: 115.17539455896757,
+    },
   ];
 
   return (
     <div className="h-dvh w-screen flex flex-col">
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style} className="gap-6 flex flex-col items-center rounded-xl">
+          <svg
+            width="100"
+            height="100"
+            viewBox="0 0 100 100"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="100" height="100" rx="50" fill="#6F87FF" />
+            <path
+              d="M50 48.7917C48.3976 48.7917 46.8609 48.1552 45.7279 47.0221C44.5948 45.8891 43.9583 44.3524 43.9583 42.75C43.9583 41.1477 44.5948 39.611 45.7279 38.4779C46.8609 37.3449 48.3976 36.7084 50 36.7084C51.6023 36.7084 53.139 37.3449 54.2721 38.4779C55.4051 39.611 56.0416 41.1477 56.0416 42.75C56.0416 43.5434 55.8854 44.3291 55.5818 45.0621C55.2781 45.7951 54.8331 46.4611 54.2721 47.0221C53.7111 47.5832 53.045 48.0282 52.312 48.3318C51.579 48.6354 50.7934 48.7917 50 48.7917ZM50 25.8334C45.5134 25.8334 41.2106 27.6157 38.0381 30.7882C34.8656 33.9606 33.0833 38.2635 33.0833 42.75C33.0833 55.4375 50 74.1667 50 74.1667C50 74.1667 66.9166 55.4375 66.9166 42.75C66.9166 38.2635 65.1344 33.9606 61.9619 30.7882C58.7894 27.6157 54.4866 25.8334 50 25.8334Z"
+              fill="#FFF8F8"
+            />
+          </svg>
+
+          <div>
+            <p
+              id="modal-modal-title"
+              className="text-center font-bold text-2xl"
+            >
+              Aktifkan Lokasi
+            </p>
+            <Typography id="modal-modal-description" className="text-center">
+              Untuk dapat menggunakan layanan, kami memerlukan izin untuk
+              mengakses lokasi Anda.
+            </Typography>
+          </div>
+
+          <button
+            onClick={handleClose}
+            className="w-2/3 bg-primary rounded-full "
+          >
+            <div className="text-center w-full py-3 text-white">Setuju</div>
+          </button>
+          <button className="w-2/3 bg-[#B4B5FF] rounded-full ">
+            <div className="text-center w-full py-3 text-primary">Lewati</div>
+          </button>
+        </Box>
+      </Modal>
       <MapContainer
         center={[-8.796916, 115.176273]} // Default center: Rektorat UNUD
         zoom={15}
@@ -143,6 +252,9 @@ function App() {
         <Marker position={[busLocation.lat, busLocation.lng]} icon={busIcon}>
           <Popup>Bus Location</Popup>
         </Marker>
+        <Marker position={[busLocation2.lat, busLocation2.lng]} icon={busIcon}>
+          <Popup>Bus Location</Popup>
+        </Marker>
         {schools.map((school, index) => (
           <Marker
             key={index}
@@ -152,7 +264,12 @@ function App() {
             <Popup>{school.name}</Popup>
           </Marker>
         ))}
-        <Polyline positions={busRoute} color="blue" />
+        {(busType === "sarbagita" || busType === "all") && (
+          <Polyline positions={busRoute1} color="blue" />
+        )}
+        {(busType === "transmart" || busType === "all") && (
+          <Polyline positions={busRoute2} color="red" />
+        )}
       </MapContainer>
       <div className="bottom-0 relative w-full bg-white z-50 border-t gap-2 pt-2 border-gray-200 shadow-md">
         <Box sx={{ width: "auto", zIndex: 10 }} className="z-10">
@@ -175,7 +292,7 @@ function App() {
             />
           </BottomNavigation>
         </Box>
-        <SwipeableEdgeDrawer />
+        <SwipeableEdgeDrawer setBusType={setBusType} />
       </div>
     </div>
   );
